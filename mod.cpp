@@ -1,0 +1,11 @@
+name = "AFI Better Shilka";
+picture = "";
+actionName = "GitHub";
+action = "https://github.com/ARMAFinland/afi_better_shilka";
+description = "Version 1.0";
+logo = "";
+logoOver = "";
+tooltip = "AFI";
+tooltipOwned = "AFI Owned";
+overview = "Improves shilka.";
+author = "Johnson";
