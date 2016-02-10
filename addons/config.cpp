@@ -3,17 +3,31 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"rhs_c_a2port_armor","rhs_c_heavyweapons"};
+		requiredAddons[] = {"rhs_c_heavyweapons","rhs_c_a2port_armor"};
 	};
 };
 
 class CfgAmmo {
 	class B_35mm_AA;
 	class RHS_ammo_23mm_AA: B_35mm_AA {
-		hit = 20;
+		hit = 10;
 		indirectHit = 10;
 		indirectHitRange = 2;
 		airLock = 2;
+	};
+};
+
+class CfgMagazines {
+	class VehicleMagazine;
+	class rhs_mag_AZP23_250: VehicleMagazine {
+		scope = 2;
+		displayName = "$STR_RHS_AZP23_NAME";
+		ammo = "RHS_ammo_23mm_AA";
+		count = 2000;
+		initSpeed = 980;
+		maxLeadSpeed = 600;
+		nameSound = "cannon";
+		tracersEvery = 1;
 	};
 };
 
@@ -22,9 +36,12 @@ class CfgWeapons {
 	class RHS_weap_AZP23: CannonCore {
 		ballisticscomputer = 1;
 		weaponLockSystem = 8;
-		magazineReloadTime = 3;
+		magazineReloadTime = 30;
 		class manual: CannonCore {
 			dispersion = 0.008;
+			reloadTime = 0.03;
+			burst = 4;
+			multiplier= 2;
 		};
 	};
 };
@@ -48,8 +65,13 @@ class CfgVehicles {
 		incomingMissileDetectionSystem = 0;
 		class Turrets: Turrets {
 			class MainTurret: MainTurret {
+				magazines[] = {
+					"RHS_mag_AZP23_250"
+				};
 				maxHorizontalRotSpeed = 2;
 				maxVerticalRotSpeed = 2;
+				discreteDistance[] = {100,800,1200,1600,2000,2400};
+				discreteDistanceInitIndex = 0;
 			};
 		};
 	};
