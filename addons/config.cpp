@@ -13,7 +13,21 @@ class CfgAmmo {
 		hit = 10;
 		indirectHit = 10;
 		indirectHitRange = 2;
+		visibleFire = 32;
+		audibleFire = 32;
+		visibleFireTime = 4;
+		explosive = 0.8;
 		airLock = 2;
+		cost = 15;
+		model = "\A3\Weapons_f\Data\bullettracer\shell_tracer_red";
+		tracerScale = 1;
+		tracerStartTime = 0.1;
+		tracerEndTime = 5;
+		airFriction = -0.000824;
+		muzzleEffect = "";
+		caliber = 1.11;
+		simulation = "shotShell";
+		timeToLive = 10;
 	};
 };
 
@@ -36,6 +50,7 @@ class CfgWeapons {
 	class RHS_weap_AZP23: CannonCore {
 		ballisticscomputer = 1;
 		weaponLockSystem = 8;
+		weaponLockDelay = 1;
 		magazineReloadTime = 30;
 		class manual: CannonCore {
 			dispersion = 0.008;
@@ -60,17 +75,19 @@ class CfgVehicles {
 	};
 	class APC_Tracked_02_base_F: Tank_F{};
 	class rhs_zsutank_base: APC_Tracked_02_base_F {
+		showAllTargets = 0;
 		radarType = 4;
 		lockDetectionSystem = 0;
 		incomingMissileDetectionSystem = 0;
 		class Turrets: Turrets {
 			class MainTurret: MainTurret {
+				stabilizedInAxes = 0;
 				magazines[] = {
 					"RHS_mag_AZP23_250"
 				};
 				maxHorizontalRotSpeed = 2;
 				maxVerticalRotSpeed = 2;
-				discreteDistance[] = {100,800,1200,1600,2000,2400};
+				discreteDistance[] = {100};
 				discreteDistanceInitIndex = 0;
 			};
 		};

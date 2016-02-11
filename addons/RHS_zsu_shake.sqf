@@ -7,5 +7,5 @@ if (cameraView == "External") exitWith {};
 // Shake camera on cannon fired
 if ((_this select 1) == "RHS_weap_AZP23") then {
 	enableCamShake true;
-	addCamShake [0.2, 0.2, 10];
+	addCamShake [1, 0.5, 20];
 };
