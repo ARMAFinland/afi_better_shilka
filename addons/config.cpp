@@ -15,7 +15,7 @@ class CfgAmmo {
 		indirectHitRange = 2;
 		visibleFire = 32;
 		audibleFire = 32;
-		visibleFireTime = 4;
+		visibleFireTime = 5;
 		explosive = 0.8;
 		airLock = 2;
 		cost = 15;
@@ -52,20 +52,74 @@ class CfgWeapons {
 		magazineReloadTime = 30;
 		autoReload = 0;
 		backgroundReload = 0;
-		lockingTargetSound[] = {"\a3\sounds_f\weapons\Rockets\locking_2", 0.5, 0.5};
-		lockedTargetSound[] = {"", 0, 0};
-		cursor = "EmptyCursor";
-		cursorAim = "cannon";
-		showAimCursorInternal = 0;
 		flash = "gunfire";
 		flashSize = 1;
-		shotFromTurret = 0;
-		muzzlePos = "usti hlavne";
-		muzzleEnd = "konec hlavne";
-		selectionFireAnim = "zasleh";
-		fireLightDuration = 0.05;
-		fireLightIntensity = 1;
-
+		modes[] = {"manual","close","short","medium","far"};
+		class manual: CannonCore {
+			reloadTime = 0.06;
+			dispersion = 0.005;
+			multiplier = 4;
+			burst = 1;
+			aiRateOfFire = 1;
+			aiRateOfFireDistance = 1000;
+			aiRateOfFireDispersion = 1;
+			minRange = 0;
+			minRangeProbab = 1;
+			midRange = 500;
+			midRangeProbab = 0.9;
+			maxRange = 1000;
+			maxRangeProbab = 0.8;
+		};
+		class close: manual {
+			showToPlayer = 0;
+			soundBurst = 0;
+			burst = 4;
+			aiRateOfFire = 2;
+			aiRateOfFireDistance = 1500;
+			aiRateOfFireDispersion = 2;
+			minRange = 0;
+			minRangeProbab = 0.01;
+			midRange = 1000;
+			midRangeProbab = 0.8;
+			maxRange = 1500;
+			maxRangeProbab = 0.7;
+		};
+		class short: close {
+			burst = 8;
+			aiRateOfFire = 3;
+			aiRateOfFireDistance = 2000;
+			aiRateOfFireDispersion = 3;
+			minRange = 1000;
+			minRangeProbab = 0.8;
+			midRange = 1500;
+			midRangeProbab = 0.7;
+			maxRange = 2000;
+			maxRangeProbab = 0.6;
+		};
+		class medium: close {
+			burst = 12;
+			aiRateOfFire = 4;
+			aiRateOfFireDistance = 3000;
+			aiRateOfFireDispersion = 4;
+			minRange = 1500;
+			minRangeProbab = 0.7;
+			midRange = 2000;
+			midRangeProbab = 0.6;
+			maxRange = 3000;
+			maxRangeProbab = 0.5;
+		};
+		class far: close {
+			burst = 16;
+			aiRateOfFire = 5;
+			aiRateOfFireDistance = 4000;
+			aiRateOfFireDispersion = 5;
+			minRange = 1000;
+			minRangeProbab = 0.6;
+			midRange = 2000;
+			midRangeProbab = 0.5;
+			maxRange = 4000;
+			maxRangeProbab = 0.4;
+		};
 	};
 };
 
@@ -99,11 +153,13 @@ class CfgVehicles {
 				magazines[] = {"RHS_mag_AZP23_250"};
 				maxHorizontalRotSpeed = 2;
 				maxVerticalRotSpeed = 2;
-				discreteDistance[] = {100};
+				turretInfoType = "RscWeaponRangeZeroing";
+				discreteDistance[] = {100,800,1200,1600,2000,2400};
 				discreteDistanceInitIndex = 0;
 				gunnerOutOpticsShowCursor = 0;
 				gunnerOpticsShowCursor = 0;
 				showaimcursorinternal = 0;
+				soundServo[] = {"A3\Sounds_F\vehicles\armor\noises\servo_tank_turret_06","db-10",1,50};
 				class CommanderOptics: CommanderOptics {
 					outGunnerMayFire = 1;
 				};
