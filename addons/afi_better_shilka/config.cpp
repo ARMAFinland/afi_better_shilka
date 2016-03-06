@@ -153,7 +153,6 @@ class CfgVehicles {
 				magazines[] = {"RHS_mag_AZP23_250"};
 				maxHorizontalRotSpeed = 2;
 				maxVerticalRotSpeed = 2;
-				turretInfoType = "RscWeaponRangeZeroing";
 				discreteDistance[] = {100,800,1200,1600,2000,2400};
 				discreteDistanceInitIndex = 0;
 				gunnerOutOpticsShowCursor = 0;
