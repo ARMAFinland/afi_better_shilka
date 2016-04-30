@@ -57,7 +57,7 @@ class CfgWeapons {
 		modes[] = {"manual","close","short","medium","far"};
 		class manual: CannonCore {
 			reloadTime = 0.06;
-			dispersion = 0.005;
+			dispersion = 0.008;
 			multiplier = 4;
 			burst = 1;
 			aiRateOfFire = 1;
