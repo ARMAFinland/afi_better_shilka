@@ -10,7 +10,7 @@ class CfgPatches {
 class CfgAmmo {
 	class B_35mm_AA;
 	class RHS_ammo_23mm_AA: B_35mm_AA {
-		hit = 10;
+		hit = 5;
 		indirectHit = 10;
 		indirectHitRange = 2;
 		visibleFire = 32;
@@ -57,7 +57,7 @@ class CfgWeapons {
 		modes[] = {"manual","close","short","medium","far"};
 		class manual: CannonCore {
 			reloadTime = 0.06;
-			dispersion = 0.008;
+			dispersion = 0.010;
 			multiplier = 4;
 			burst = 1;
 			aiRateOfFire = 1;
