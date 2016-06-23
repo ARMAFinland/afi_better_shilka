@@ -10,8 +10,8 @@ class CfgPatches {
 class CfgAmmo {
 	class B_35mm_AA;
 	class RHS_ammo_23mm_AA: B_35mm_AA {
-		hit = 5;
-		indirectHit = 10;
+		hit = 3;
+		indirectHit = 12;
 		indirectHitRange = 2;
 		visibleFire = 32;
 		audibleFire = 32;
@@ -119,6 +119,23 @@ class CfgWeapons {
 			midRangeProbab = 0.5;
 			maxRange = 4000;
 			maxRangeProbab = 0.4;
+		};
+	};
+	class RHS_weap_2a14: RHS_weap_AZP23 {
+		ballisticscomputer = 0;
+		backgroundReload = 1;
+		displayName = "2A14";
+		class gunParticles {
+			class effect1 {
+				positionName = "cartridge_pos";
+				directionName = "cartridge_dir";
+				effectName = "MachineGunCartridge1";
+			};
+		};
+		magazineReloadTime = 10;
+		class manual: manual {
+			multiplier = 2;
+			displayName = "2A14";
 		};
 	};
 };
